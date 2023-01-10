@@ -1,0 +1,5 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Trpc Api",
+  "extends": "./base.json"
+}
