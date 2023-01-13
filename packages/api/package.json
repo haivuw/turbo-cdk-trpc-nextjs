@@ -12,6 +12,7 @@
   "dependencies": {
     "@trpc/client": "^10.5.0",
     "@trpc/server": "^10.5.0",
+    "aws-lambda": "^1.0.7",
     "zod": "^3.20.0"
   },
   "devDependencies": {

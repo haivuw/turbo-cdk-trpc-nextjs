@@ -1,12 +1,13 @@
 import { type inferAsyncReturnType } from '@trpc/server';
-import { type CreateNextContextOptions } from '@trpc/server/adapters/next';
+import type { APIGatewayProxyEventV2 } from 'aws-lambda';
+import { CreateAWSLambdaContextOptions } from '@trpc/server/adapters/aws-lambda';
 
-export const createContext = async (options: CreateNextContextOptions) => {
-  if (options.req.headers.cookie) {
-    // auth or something...
-  }
-
-  return { user: null };
+export const createContext = ({
+  event,
+}: CreateAWSLambdaContextOptions<APIGatewayProxyEventV2>) => {
+  return {
+    event,
+  };
 };
 
 export type Context = inferAsyncReturnType<typeof createContext>;
