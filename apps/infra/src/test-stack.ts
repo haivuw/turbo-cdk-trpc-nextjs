@@ -7,7 +7,7 @@ export class TestStack extends cdk.Stack {
     super(scope, id, props);
 
     new aws_lambda_nodejs.NodejsFunction(this, 'TRPCHandler', {
-      entry: require.resolve('./api/server.ts'),
+      entry: require.resolve('./trpc'),
       timeout: Duration.minutes(1),
     });
   }
