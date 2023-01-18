@@ -3,7 +3,8 @@ import { Construct } from 'constructs';
 import { aws_lambda_nodejs, CfnOutput, Duration } from 'aws-cdk-lib';
 import { FunctionUrlAuthType } from 'aws-cdk-lib/aws-lambda';
 
-export class TestStack extends cdk.Stack {
+export class ApiStack extends cdk.Stack {
+  public trpcUrl: string;
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
@@ -16,8 +17,10 @@ export class TestStack extends cdk.Stack {
       authType: FunctionUrlAuthType.NONE,
     });
 
+    this.trpcUrl = url.url.replace(/\/$/, '');
+
     new CfnOutput(this, 'TRPCUrl', {
-      value: url.url,
+      value: this.trpcUrl,
     });
   }
 }
