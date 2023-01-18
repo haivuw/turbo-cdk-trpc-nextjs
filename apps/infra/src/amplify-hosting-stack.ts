@@ -81,30 +81,6 @@ export class AmplifyHostingStack extends Stack {
     const cfnAmplifyApp = amplifyApp.node.defaultChild as CfnApp;
     cfnAmplifyApp.platform = 'WEB_COMPUTE';
 
-    // // add framework manually because it is not yet supported by the Amplify CDK
-    // // https://github.com/aws/aws-cdk/issues/23325
-    // const cfnBranch = main.node.defaultChild as CfnBranch;
-    // cfnBranch.addOverride('Properties.Framework', 'Next.js - SSR');
-    // // cfnBranch.addDeletionOverride('Properties.BranchName');
-
-    // // update platform to WEB_COMPUTE because it is not yet supported by the Amplify CDK
-    // // https://aws.amazon.com/de/blogs/mobile/deploy-a-nextjs-13-application-to-amplify-with-the-aws-cdk/
-    // const updatePlatform = new cr.AwsCustomResource(this, 'updatePlatform', {
-    //   policy: cr.AwsCustomResourcePolicy.fromSdkCalls({
-    //     resources: cr.AwsCustomResourcePolicy.ANY_RESOURCE,
-    //   }),
-    //   onCreate: {
-    //     service: 'Amplify',
-    //     action: 'updateApp',
-    //     physicalResourceId: cr.PhysicalResourceId.of('app-update-platform'),
-    //     parameters: {
-    //       appId: amplifyApp.appId,
-    //       platform: 'WEB_COMPUTE',
-    //     },
-    //   },
-    // });
-    // console.log(updatePlatform.grantPrincipal);
-
     // trigger build after stack creation
     // https://stackoverflow.com/questions/71664346/trigger-an-aws-amplify-build-via-aws-cdk
     // const buildTrigger = new cr.AwsCustomResource(this, 'triggerAppBuild', {
