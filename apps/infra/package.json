@@ -24,6 +24,7 @@
     "typescript": "~4.9.4"
   },
   "dependencies": {
+    "@sls-next/cdk-construct": "^3.7.0",
     "api": "*",
     "aws-cdk-lib": "2.55.0",
     "aws-lambda": "^1.0.7",
