@@ -1,7 +1,4 @@
 {
   "extends": "tsconfig/api.json",
-  "include": ["src", "index.ts"],
-  "compilerOptions": {
-    "isolatedModules": false
-  }
+  "include": ["src", "index.ts"]
 }
